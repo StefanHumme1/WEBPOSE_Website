@@ -1,0 +1,170 @@
+/* General Body Styling */
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #FFFFFF;
+}
+
+.top-menu {
+  display: flex;
+  justify-content: space-between; /* This will push the children to the edges */
+  padding: 20px 300px 0px 300px;
+}
+.label {
+  display: flex;
+  border: 1px solid #FB9759;
+  border-radius: 5px;
+}
+.menu-button {
+  background-color: #FFA07A; /* Button background color */
+  color: white; /* Button text color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px; /* Rounded corners for buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.menu-button:hover {
+  background-color: #FF7F50; /* Darker color on hover */
+}
+
+.status {
+    margin: 5px 0; /* Reduced margin */
+    padding: 5px; /* Reduced padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 250px; /* Set a maximum width for the boxes */
+    font-size: 2rem; /* Smaller font size */
+    background-color: #fff; /* Background color for visibility */
+}
+
+.panel.is-info {
+    border-color: #209cee;
+}
+
+.panel-heading {
+    background-color: #003243;
+    color: #ffffff;
+}
+
+/* Webcam and Mediapipe Output Styling */
+.input_video5, .output5 {
+    border: 1px solid #FB9759;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: Center;
+}
+.columns {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    align-items: start; /* Align items at the start of the container */
+    gap: 20px; /* Optional: adds space between the flex items */
+    position: relative; /* This is necessary for absolute positioning of the children */
+    display: flex;
+}
+.column, .status-container {
+  flex: 1; /* Allows the children to grow and fill the space equally */
+}
+.micSelect {
+  font-family: 'Arial', sans-serif;
+  color: #FB9759;
+}
+
+/* Loading Spinner Customization */
+.loading .spinner {
+    border-top-color: #209cee;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Centering Recording and Download Button Styling */
+.control-buttons {
+    display: flex;
+    justify-content: center; /* Centers children horizontally in the container */
+    align-items: center; /* Centers children vertically in the container */
+    flex-direction: row; /* Arranges children in a row */
+    gap: 20px; /* Optional: adds space between the buttons */
+}
+
+/* Additional styling for individual buttons to ensure they look consistent */
+button {
+    background-color: #FFFFFF;
+    color: #FB9759;
+    border: 1px solid #FB9759;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 5px;
+    text-align: center; /* Center the text inside the button */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button:hover {
+    background-color: #FB9759;
+    color: #000000;
+
+}
+/* Styling for the timer */
+#timer {
+    font-family: 'Arial', sans-serif; /* Use a modern, readable font */
+    font-size: 2rem; /* Make the font larger */
+    color: #FB9759; /* A pleasant blue that matches your button colors */
+    background-color: #FFFFFF; /* A light background to make it stand out */
+    padding: 10px 20px; /* Add some padding around the text */
+    border-radius: 8px; /* Round the corners */
+    border: 1px solid #FB9759; /* Add a border with the same blue color */
+    margin: 20px auto; /* Vertical spacing and centering horizontally */
+    display: block; /* Ensure it's a block-level element for width to take effect */
+    width: fit-content; /* Adjust width to fit its content */
+    text-align: center; /* Center the text inside the block */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.container { /* or .control-buttons if that's the parent container */
+    display: flex;
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+    flex-direction: column; /* Stack children vertically */
+    height: 80vh; /* Optional: take up full viewport height */
+}
+/* Assuming the videos are in a container with class .videos-container */
+.videos-container {
+    display: flex;
+    justify-content: center; /* Center videos horizontally */
+    gap: 20px; /* Adjust based on your layout */
+}
+
+.status-container {
+    width: 80px; /* Fixed width; adjust as needed */
+    height: auto; /* Adjust height to content */
+    margin: 10px auto; /* Center the container horizontally */
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    justify-content: center; /* Center children vertically in the container */
+    gap: 10px; /* Space between items */
+    padding: 20px; /* Padding around the content inside the container */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for depth */
+    background-color: #FFFFFF; /* Optional: sets a background color */
+    border: 1px solid #FB9759;
+    border-radius: 6px; /* Optional: rounds the corners */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    margin: 10px 0; /* Add some vertical spacing */
+}
+.output5 {
+    display: none;
+}
+.status-icon-left {
+  position: absolute; /* Absolute positioning relative to the nearest positioned ancestor */
+  left: -50px; /* Shift the image to the left by its own width */
+  top: 0; /* Align the top of the image with the top of the status-container */
+  width: 50px; /* Set the image width */
+  height: auto; /* Maintain the aspect ratio */
+  z-index: 2; /* Place it above other elements if necessary */

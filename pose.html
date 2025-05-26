@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="control_utils.css">
+  <link rel="stylesheet" type="text/css" href="demo.css" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.1/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.1/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.2/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.2/pose.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/whammy/whammy.js"></script>
+  <script src="path_to_lamejs/lame.min.js"></script>
+  <title>presentable-v2</title>
+  <link rel="icon" type="image/x-icon" href="/logo-presentable-v2.ico">
+</head>
+
+<body>
+  <div class="top-menu">
+    <button class="menu-button before-button">Before</button>
+    <div class="menu-spacer"></div> <!-- Spacer to push buttons to edges -->
+    <button class="menu-button after-button">After</button>
+  </div>
+  <!-- CONTENTS -->
+  <div class="container" style="margin-top: 20px;">
+    <div class="columns">
+
+      <img src="parrot.png" class="status-icon-left" alt="Parrot">
+      <!-- Status Container moved here to be before the webcam input -->
+      <div class="status-container">
+        <div id="crossedArmsStatus" class="status">Reading</div>
+        <div id="crossedLegsStatus" class="status">Reading</div>
+        <div id="noHandsStatus" class="status">Reading</div>
+        <div id="turnStatus" class="status">Reading</div>
+        <div id="handCloseToFaceStatus" class="status">Reading</div>
+      </div>
+
+      <!-- WEBCAM INPUT -->
+      <div class="column">
+        <article class="panel is-info">
+          <div class="panel-block">
+            <video class="input_video5"></video>
+          </div>
+        </article>
+      </div>
+
+      <!-- MEDIAPIPE OUTPUT -->
+      <div class="column">
+        <article class="panel-block">
+          <canvas class="output5" width="480px" height="480px"></canvas>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="loading">
+      <div class="spinner"></div>
+    </div>
+
+    <div class="control2">
+      <div class="control-buttons">
+        <button onclick="startRecording()">Start Recording</button>
+        <button onclick="stopRecording()">Stop Recording</button>
+        <button id="downloadButton">Download Cached Landmarks</button>
+        <div class="button-container">
+          <button id="toggleStatusContainer">Feed Back Box</button>
+        </div>
+      </div>
+      <div class="label">
+      <label for="micSelect">Choose a microphone:</label>
+      <select id="micSelect"></select>
+    </div>
+    <div class="label">
+      <label for="videoSelect">Choose a video source:</label>
+      <select id="videoSelect"></select>
+    </div>
+    <div id="timer">00:00:00</div>
+    </div>
+  </div>
+
+  <div style="visibility: hidden;" class="control5">
+  </div>
+  <script type="text/javascript" src="./pose.js"></script>
+  <script>
+    document.getElementById('toggleStatusContainer').addEventListener('click', function() {
+        var container = document.querySelector('.status-container');
+        if (container.style.display === 'none') {
+            container.style.display = 'flex'; // Use 'flex' to maintain the flex styling
+        } else {
+            container.style.display = 'none';
+        }
+    });
+  </script>
+</body>
+</html>
