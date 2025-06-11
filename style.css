@@ -34,7 +34,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     max-width: 250px; /* Set a maximum width for the boxes */
-    font-size: 2rem; /* Smaller font size */
+    font-size: 1rem; /* Smaller font size */
     background-color: #fff; /* Background color for visibility */
 }
 
